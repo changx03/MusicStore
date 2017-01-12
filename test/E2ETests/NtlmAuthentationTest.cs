@@ -44,7 +44,7 @@ namespace E2ETests
                     ApplicationType = applicationType,
                     ApplicationBaseUriHint = applicationBaseUrl,
                     EnvironmentName = "NtlmAuthentication", //Will pick the Start class named 'StartupNtlmAuthentication'
-                    ServerConfigTemplateContent = (serverType == ServerType.IISExpress) ? File.ReadAllText("NtlmAuthentation.config") : null,
+                    ServerConfigTemplateContent = (serverType == ServerType.IISExpress) ? File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "NtlmAuthentation.config")) : null,
                     SiteName = "MusicStoreNtlmAuthentication", //This is configured in the NtlmAuthentication.config
                     UserAdditionalCleanup = parameters =>
                     {

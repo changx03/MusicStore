@@ -18,7 +18,22 @@ namespace E2ETests
 
         public static string GetApplicationPath(ApplicationType applicationType)
         {
-            return Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "samples", applicationType == ApplicationType.Standalone ? "MusicStore.Standalone" : "MusicStore"));
+            var current = new DirectoryInfo(AppContext.BaseDirectory);
+            while (current != null)
+            {
+                if (File.Exists(Path.Combine(current.FullName, "MusicStore.sln")))
+                {
+                    break;
+                }
+                current = current.Parent;
+            }
+
+            if (current == null)
+            {
+                throw new InvalidOperationException("Could not find the solution directory");
+            }
+
+            return Path.GetFullPath(Path.Combine(current.FullName, "samples", applicationType == ApplicationType.Standalone ? "MusicStore.Standalone" : "MusicStore"));
         }
 
         public static void SetInMemoryStoreForIIS(DeploymentParameters deploymentParameters, ILogger logger)

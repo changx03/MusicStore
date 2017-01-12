@@ -1,0 +1,31 @@
+<Project ToolsVersion="15.0">
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore" Version="1.2.0-*" />
+    <PackageReference Include="Microsoft.AspNetCore.AspNetCoreModule" Version="1.0.0-*" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="1.2.0-*" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="1.2.0-*" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="1.2.0-*" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.MicrosoftAccount" Version="1.2.0-*" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="1.2.0-*" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Twitter" Version="1.2.0-*" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="1.2.0-*" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="1.2.0-*" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.2.0-*" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.TagHelpers" Version="1.2.0-*" />
+    <PackageReference Include="Microsoft.AspNetCore.Server.HttpSys" Version="1.2.0-*" />
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="1.2.0-*" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.2.0-*" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="1.2.0-*" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="1.2.0-*" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.CommandLine" Version="1.2.0-*" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp1.1' ">
+    <PackageReference Include="Microsoft.NETCore.App" Version="1.2.0-*" />
+
+    <!-- workaround https://github.com/dotnet/sdk/pull/581 until we upgrade to preview5 CLI -->
+    <PackageReference Include="Microsoft.DiaSymReader.Native" Version="1.4.0" ExcludeAssets="Build" />
+  </ItemGroup>
+
+</Project>
